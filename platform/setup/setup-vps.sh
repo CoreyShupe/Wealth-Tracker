@@ -1,5 +1,8 @@
 #!/bin/bash
 
+cd "$( dirname "$( readlink -f "$0" )" )"
+export CURRENT_DIR=$(pwd)
+
 # Create the new user (change 'fakeuser' to your desired username)
 sudo useradd -m -s /usr/sbin/nologin fakeuser
 
@@ -15,12 +18,10 @@ sudo usermod -aG sudo fakeuser
 echo "fakeuser ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # Setup new user
-sudo -u fakeuser ./setup/setup-fakeuser.sh
-
-export CURRENT_DIR=$(pwd)
+sudo -u fakeuser ./setup-fakeuser.sh
 
 sudo usermod -aG docker fakeuser
 
 cd $CURRENT_DIR
 
-sudo -u fakeuser ./setup/ensure-user.sh
+sudo -u fakeuser ./ensure-user.sh
