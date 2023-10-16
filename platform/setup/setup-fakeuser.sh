@@ -23,4 +23,4 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 	| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get -y -o DPkg::Lock::Timeout=$LOCK_TIMEOUT update
-sudo apt-get -y -o DPkg::Lock::Timeout=$LOCK_TIMEOUT install docker-ce
+sudo apt-get -y -o DPkg::Lock::Timeout=$LOCK_TIMEOUT install docker-ce docker-compose-plugin

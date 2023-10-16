@@ -1,0 +1,18 @@
+{
+	"semi": true,
+	"trailingComma": "all",
+	"singleQuote": false,
+	"printWidth": 90,
+	"tabWidth": 4,
+	"useTabs": false,
+	"endOfLine": "auto",
+	"jsxBracketSameLine": false,
+	"overrides": [
+		{
+			"files": "*.yml",
+			"options": {
+				"tabWidth": 2
+			}
+		}
+	]
+}

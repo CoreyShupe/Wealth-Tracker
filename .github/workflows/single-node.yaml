@@ -1,0 +1,17 @@
+name: "Deploy from Single Node"
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  compose:
+    name: "Docker Compose Up"
+    runs-on: ["same-machine", "Linux"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Compose Up
+        run: docker compose --file platform/docker-compose.yaml up --build --remove-orphans --detach
